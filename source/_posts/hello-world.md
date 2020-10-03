@@ -2,38 +2,27 @@
 title: Hello World
 ---
 
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+### proxy settings
 
-## Quick Start
-
-### Create a new post
-
-```bash
-$ hexo new "My New Post"
+```
+git config --global --unset https.proxy 
+git config --global --unset http.proxy
 ```
 
-More info: [Writing](https://hexo.io/docs/writing.html)
-
-### Run server
-
-```bash
-$ hexo server
+### 变量设置
 ```
-
-More info: [Server](https://hexo.io/docs/server.html)
-
-### Generate static files
-
-```bash
-$ hexo generate
+export PATH=$PATH:$HOME/bin:/sbin:/usr/bin:/usr/sbin
 ```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-```bash
-$ hexo deploy
+### 修改DNS
 ```
-
-More info: [Deployment](https://hexo.io/docs/deployment.html)
+sudo vi /etc/resolv.conf
+nameserver 114.114.114.114
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+nameserver 1.1.1.1
+```
+### 关闭centos防火墙
+```
+systemctl stop firewalld.service
+systemctl disable firewalld.service
+```
